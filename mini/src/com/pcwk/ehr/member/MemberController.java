@@ -22,9 +22,10 @@ public class MemberController implements PLog {
 		//3.dao.doSave(param);
 		
 		Scanner scanner=new Scanner(System.in);
-		
-		System.out.printf("회원ID로 검색: 10,pcwk\n");
+		System.out.printf("전체   검색: 전체,All \n");
+		System.out.printf("회원ID 검색: 10,pcwk\n");
 		System.out.printf("회원이름 검색: 20,이상무\n");
+		
 		System.out.printf("검색할 회원 정보를 입력 하세요.>");
 		
 		

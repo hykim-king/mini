@@ -146,13 +146,15 @@ public class MemberDao implements WorkDiv<MemberVO>, PLog {
 			//%pcwk01%
 			for(MemberVO vo :members) {
 				//id검색: 포함하고 있는
-				if(vo.getMemberName().matches("*"+dto.getSearchWord()+"*")) {
+				if(vo.getMemberName().matches(".*"+dto.getSearchWord()+".*")) {
 					list.add(vo);
 				}
 				//이름
 				//이메일
 			}		
-		}	
+		}else {	
+			list = members;
+		}
 
 		return list;
 	}

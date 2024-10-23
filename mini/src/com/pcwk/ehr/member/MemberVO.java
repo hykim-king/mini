@@ -20,7 +20,6 @@ public class MemberVO extends DTO {
 		super();
 	}
 
-
 	public MemberVO(String memberId, String memberName, String password, String email, int teamId, int loginCount,
 			String regDt, String roleName) {
 		super();
@@ -138,9 +137,18 @@ public class MemberVO extends DTO {
 
 	@Override
 	public String toString() {
-		return "MemberVO [memberId=" + memberId + ", memberName=" + memberName + ", password=" + password + ", email="
-				+ email + ", teamId=" + teamId + ", loginCount=" + loginCount + ", regDt=" + regDt + ", roleName="
-				+ roleName + ", toString()=" + super.toString() + "]";
+		return String.format("%-10s %-10s %-10s %-20s %2d %3d %-20s %-15s ", memberId
+				                                                            ,memberName
+				                                                            ,password
+				                                                            ,email
+				                                                            ,teamId
+				                                                            ,loginCount
+				                                                            ,regDt
+				                                                            ,roleName);
+		
+//		return "MemberVO [memberId=" + memberId + ", memberName=" + memberName + ", password=" + password + ", email="
+//				+ email + ", teamId=" + teamId + ", loginCount=" + loginCount + ", regDt=" + regDt + ", roleName="
+//				+ roleName + ", toString()=" + super.toString() + "]";
 	}
 	
 	

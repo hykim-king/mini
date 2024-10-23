@@ -1,5 +1,6 @@
 package com.pcwk.ehr.member;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.pcwk.ehr.cmn.PLog;
@@ -26,6 +27,14 @@ public class Main implements PLog {
 			String menu = scanner.nextLine().trim();
 			
 			switch (menu) {
+			case "1":{//회원 목록 조회
+				List<MemberVO> list = controller.doRetrieve();
+				for(MemberVO vo :list) {
+					System.out.println(vo);
+				}
+			}
+			break;
+			
 			case "2":{//회원 단건 조회
 				MemberVO outVO = controller.doSelectOne();
 				
