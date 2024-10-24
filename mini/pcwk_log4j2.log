@@ -1,3 +1,34 @@
-[2024-10-23 18:05:39] DEBUG MemberController.doSelectOne(MemberController.java:106) - 1. inputData:pcwk05
-[2024-10-23 18:05:39] DEBUG MemberController.doSelectOne(MemberController.java:109) - 2. param:MemberVO [memberId=pcwk05, memberName=null, password=null, email=null, teamId=0, loginCount=0, regDt=null, roleName=null, toString()=DTO [searchDiv=null, searchWord=null]]
-[2024-10-23 18:05:39] DEBUG MemberController.doSelectOne(MemberController.java:112) - 3. outVO:MemberVO [memberId=pcwk05, memberName=이상무05, password=4321, email=jamesol5@paran.com, teamId=1, loginCount=0, regDt=2024/10/23 14:33:00, roleName=일반, toString()=DTO [searchDiv=null, searchWord=null]]
+[2024-10-24 15:13:12] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:10,pcwk
+[2024-10-24 15:13:12] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=10, searchWord=pcwk]
+[2024-10-24 15:26:17] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:전체,ALL
+[2024-10-24 15:26:17] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=전체, searchWord=ALL]
+[2024-10-24 15:32:39] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:전체,ALL
+[2024-10-24 15:32:39] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=전체, searchWord=ALL]
+[2024-10-24 16:22:56] DEBUG MemberController.doSelectOne(MemberController.java:112) - 1. inputData:pcwk02
+[2024-10-24 16:22:56] DEBUG MemberController.doSelectOne(MemberController.java:115) - 2. param:pcwk02     null       null       null                       0         0 null                 null      
+
+[2024-10-24 16:22:56] DEBUG MemberController.doSelectOne(MemberController.java:118) - 3. outVO:pcwk02     이상무02      4321       jamesol02@paran.com        1         1 2024/10/17 14:33:00  관리자       
+
+[2024-10-24 17:01:16] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:전체,ALL
+[2024-10-24 17:01:16] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=전체, searchWord=ALL]
+[2024-10-24 17:02:28] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:전체,ALL
+[2024-10-24 17:02:28] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=전체, searchWord=ALL]
+[2024-10-24 17:03:17] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:30,jamesol@paran.com
+[2024-10-24 17:03:17] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=30, searchWord=jamesol@paran.com]
+[2024-10-24 17:08:22] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:전체,ALL
+[2024-10-24 17:08:22] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=전체, searchWord=ALL]
+[2024-10-24 17:09:41] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:전체,ALL
+[2024-10-24 17:09:41] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=전체, searchWord=ALL]
+[2024-10-24 17:11:02] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:전체,ALL
+[2024-10-24 17:11:02] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=전체, searchWord=ALL]
+[2024-10-24 17:14:12] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:전체,ALL
+[2024-10-24 17:14:12] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=전체, searchWord=ALL]
+[2024-10-24 17:17:17] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:전체,ALL
+[2024-10-24 17:17:17] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=전체, searchWord=ALL]
+[2024-10-24 17:23:03] DEBUG MemberController.doRetrieve(MemberController.java:28) - 1. inputData:10,pcwk
+[2024-10-24 17:23:03] DEBUG MemberController.doRetrieve(MemberController.java:34) - 2. param:DTO [searchDiv=10, searchWord=pcwk]
+[2024-10-24 17:23:46] DEBUG MemberController.doSelectOne(MemberController.java:115) - 1. inputData:pcwk01
+[2024-10-24 17:23:46] DEBUG MemberController.doSelectOne(MemberController.java:118) - 2. param:pcwk01     null       null       null                       0         0 null                 null      
+
+[2024-10-24 17:23:46] DEBUG MemberController.doSelectOne(MemberController.java:121) - 3. outVO:pcwk01     이상무01      4321       jamesol@paran.com          1         0 2024/10/17 14:33:00  일반        
+

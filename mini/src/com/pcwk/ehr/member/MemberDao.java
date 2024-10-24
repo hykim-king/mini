@@ -43,8 +43,18 @@ public class MemberDao implements WorkDiv<MemberVO>, PLog {
 
 			System.out.println(message);
 
-			for (MemberVO vo : list) {
-				System.out.println(vo);
+			System.out.print(String.format("%-10s %-10s %-10s %-20s %-7s %-9s %-15s %-10s%n", "회원ID"
+	                ,"이름"
+	                ,"비밀번호"
+	                ,"이메일"
+	                ,"구룹ID"
+	                ,"로그인횟수"
+	                ,"가입일"
+	                ,"그룹명"
+	                ));
+			System.out.println("---------------------------------------------------------------------------------------");
+			for(MemberVO vo  :list) {
+				System.out.print(vo);
 			}
 		} else {
 			System.out.println("회원정보가 없습니다.");
@@ -63,7 +73,7 @@ public class MemberDao implements WorkDiv<MemberVO>, PLog {
 			// param, vo의 memberId비교
 			if (vo.getMemberId().equals(member.getMemberId())) {
 				flag = true;
-				break;
+				return flag;
 			}
 		}
 
@@ -126,78 +136,44 @@ public class MemberDao implements WorkDiv<MemberVO>, PLog {
 		return outVO;
 	}
 
-	@Override
-	public List<MemberVO> doRetrieve(DTO param) {
-		List<MemberVO> list=new ArrayList<MemberVO>();
+	@Override 
+	public List<MemberVO> doRetrieve(DTO param,int pageNum, int pageSize) {
+		
 		DTO dto = param;
-		if(dto.getSearchDiv().equals("10")) {//회원Id검색
-			//%pcwk01%
-			for(MemberVO vo :members) {
-				//id검색: 포함하고 있는
-				if(vo.getMemberId().equals(dto.getSearchWord())) {
-					list.add(vo);
-					break;
-				}
-				//이름
-				//이메일
-				
-			}			
-		}else if(dto.getSearchDiv().equals("20")) {//회원이름
-			//%pcwk01%
-			for(MemberVO vo :members) {
-				//id검색: 포함하고 있는
-				if(vo.getMemberName().matches(".*"+dto.getSearchWord()+".*")) {
+		List<MemberVO> list =new ArrayList<MemberVO>();
+		
+		if(dto.getSearchDiv().equals("전체")||dto.getSearchDiv().equals("ALL")) {
+			return members;
+		}else if(dto.getSearchDiv().equals("10")) {
+			for(MemberVO vo  :members) {
+				if(vo.getMemberId().contains(dto.getSearchWord())) {
 					list.add(vo);
 				}
-				//이름
-				//이메일
-			}		
-		}else {	
-			list = members;
+			}
 		}
-
+		
+		
 		return list;
 	}
 
 	@Override
 	public int writeFile(String path) {
-		int count = 0;
-		try(BufferedWriter bw=new BufferedWriter(new FileWriter(path))){
-			String separator = ",";
+		
+		int count = 0; //저장 건수
+		try(BufferedWriter bw=new BufferedWriter(new FileWriter(fileName))){
+			//List<MemberVO> -> MemberVO
+			String filedSeparator = ",";
+			//pcwk01,이상무01,4321,jamesol@paran.com,1,0,2024/10/17 14:33:00,일반
 			
 			for(MemberVO vo :members) {
-				count++;
-				StringBuilder sb=new StringBuilder(200);
-				sb.append(vo.getMemberId());
-				sb.append(separator);
-				
-				sb.append(vo.getMemberName());
-				sb.append(separator);		
-				
-				sb.append(vo.getPassword());
-				sb.append(separator);	
-
-				sb.append(vo.getEmail());
-				sb.append(separator);		
-				
-				sb.append(vo.getTeamId());
-				sb.append(separator);	
-				
-				sb.append(vo.getLoginCount());
-				sb.append(separator);
-				
-				sb.append(vo.getRegDt());
-				sb.append(separator);		
-				
-				sb.append(vo.getRoleName());
-				sb.append("\n");	
-				
-				bw.write(sb.toString());
-				
+				++count;
+				bw.write(vo.voToString());
 			}
-		} catch (IOException e) {
-			System.out.println("IOException:" + e.getMessage());
+			
+		}catch(IOException e) {
+			e.printStackTrace();
 		}
+		
 		
 		return count;
 	}

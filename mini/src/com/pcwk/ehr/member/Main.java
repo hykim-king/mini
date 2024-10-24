@@ -27,14 +27,25 @@ public class Main implements PLog {
 			String menu = scanner.nextLine().trim();
 			
 			switch (menu) {
-			case "1":{//회원 목록 조회
-				List<MemberVO> list = controller.doRetrieve();
-				for(MemberVO vo :list) {
-					System.out.println(vo);
+			case "1":{//회원조회
+				List<MemberVO> list=controller.doRetrieve();
+				
+				System.out.print(String.format("%-10s %-10s %-10s %-20s %7s %9s %-20s %-10s%n", "회원ID"
+		                ,"이름"
+		                ,"비밀번호"
+		                ,"이메일"
+		                ,"구룹ID"
+		                ,"로그인횟수"
+		                ,"가입일"
+		                ,"그룹명"
+		                ));
+				System.out.println("---------------------------------------------------------------------------------------");
+				for(MemberVO vo  :list) {
+					System.out.print(vo);
 				}
+				
 			}
 			break;
-			
 			case "2":{//회원 단건 조회
 				MemberVO outVO = controller.doSelectOne();
 				
@@ -81,10 +92,11 @@ public class Main implements PLog {
 				//Todo : 저장기능 연결할것.
 				System.out.println("┌─────────────────────────┐");
 				System.out.println("│Programe exit.           │");
-				System.out.println("└─────────────────────────┘");
+
 				
 				int count = controller.writeFile();
-				System.out.println("│회원수: "+count);
+				System.out.println("│Member count             │"+count);
+				System.out.println("└─────────────────────────┘");				
 				System.exit(0);
 				
 			}

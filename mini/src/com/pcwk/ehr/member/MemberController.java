@@ -1,6 +1,5 @@
 package com.pcwk.ehr.member;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,37 +8,46 @@ import com.pcwk.ehr.cmn.PLog;
 
 public class MemberController implements PLog {
 
-	private MemberDao dao;
+	private MemberDaoStream dao;
 	
 	public MemberController() {
-		dao = new MemberDao();
+		dao = new MemberDaoStream();
 	}
 	
 	public List<MemberVO> doRetrieve() {
-		DTO param=new DTO();
-		//1.Scanner
-		//2.등록사용자 정보
-		//3.dao.doSave(param);
-		
+		DTO param = new DTO();
 		Scanner scanner=new Scanner(System.in);
-		System.out.printf("전체   검색: 전체,All \n");
-		System.out.printf("회원ID 검색: 10,pcwk\n");
-		System.out.printf("회원이름 검색: 20,이상무\n");
+		//검색 구분( 회원ID(10),이름(20),이메일(30))
+		System.out.println("전체 : 전체,ALL");
+		System.out.println("회원ID : 10,pcwk");
+		System.out.println("이름 : 20,이상무");
+		System.out.println("이메일 : 30,jamesol@paran.com");
 		
-		System.out.printf("검색할 회원 정보를 입력 하세요.>");
+		System.out.print("검색할 정보를 입력 하세요>");
+		String inputData  = scanner.nextLine().trim();
+		log.debug("1. inputData:{}",inputData);
+		String searchDiv  = inputData.split(",")[0];
+		String searchWord = inputData.split(",")[1];
 		
+		param.setSearchDiv(searchDiv);
+		param.setSearchWord(searchWord);
+		log.debug("2. param:{}",param);
 		
-		String inputData = scanner.nextLine().trim();
-		String[] strArr = inputData.split(",");
-		param.setSearchDiv(strArr[0]);
-		param.setSearchWord(strArr[1]);
+		System.out.print("페이지 번호를 입력 하세요.>");
+		int pageNum = scanner.nextInt();
+		int pageSize = 10;
+		return dao.doRetrieve(param,pageNum,pageSize);
 		
-		return dao.doRetrieve(param);
 	}
 	
+	
+	/**
+	 * List<MemberVO>를 member.csv기록
+	 * @return
+	 */
 	public int writeFile() {
 		return dao.writeFile(MemberDao.fileName);
-	}
+	}   
 	
 	
 	public int doUpdate() {

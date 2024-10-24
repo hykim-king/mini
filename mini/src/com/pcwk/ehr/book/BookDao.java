@@ -32,7 +32,7 @@ public class BookDao implements WorkDiv<BookVO> {
 		return null;
 	}
 
-	@Override
+
 	public List<BookVO> doRetrieve(DTO param) {
 		// TODO Auto-generated method stub
 		return null;
@@ -48,6 +48,12 @@ public class BookDao implements WorkDiv<BookVO> {
 	public int readFile(String path) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<BookVO> doRetrieve(DTO param, int pageNum, int pageSize) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

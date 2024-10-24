@@ -1,10 +1,11 @@
 package com.pcwk.ehr.member;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 import com.pcwk.ehr.cmn.DTO;
 
-public class MemberVO extends DTO {
+public class MemberVO extends DTO implements Comparator<String> {
 	
 	private String    memberId    ;//회원ID<PK>
 	private String    memberName  ;//이름
@@ -19,6 +20,7 @@ public class MemberVO extends DTO {
 	public MemberVO() {
 		super();
 	}
+
 
 	public MemberVO(String memberId, String memberName, String password, String email, int teamId, int loginCount,
 			String regDt, String roleName) {
@@ -134,21 +136,37 @@ public class MemberVO extends DTO {
 		return Objects.equals(memberId, other.memberId);
 	}
 
-
+	public String voToString() {
+		return String.format("%s,%s,%s,%s,%d,%d,%s,%s%n", memberId
+				                       ,memberName
+				                       ,password
+				                       ,email
+				                       ,teamId
+				                       ,loginCount
+				                       ,regDt
+				                       ,roleName
+				                       );
+	}
+	
+	
 	@Override
 	public String toString() {
-		return String.format("%-10s %-10s %-10s %-20s %2d %3d %-20s %-15s ", memberId
-				                                                            ,memberName
-				                                                            ,password
-				                                                            ,email
-				                                                            ,teamId
-				                                                            ,loginCount
-				                                                            ,regDt
-				                                                            ,roleName);
-		
-//		return "MemberVO [memberId=" + memberId + ", memberName=" + memberName + ", password=" + password + ", email="
-//				+ email + ", teamId=" + teamId + ", loginCount=" + loginCount + ", regDt=" + regDt + ", roleName="
-//				+ roleName + ", toString()=" + super.toString() + "]";
+		return String.format("%-10s %-10s %-10s %-20s %7d %9d %-20s %-10s%n", memberId
+                ,memberName
+                ,password
+                ,email
+                ,teamId
+                ,loginCount
+                ,regDt
+                ,roleName
+                );
+	}
+
+
+	@Override
+	public int compare(String o1, String o2) {
+		//문자열 오름차순 비교
+		return o1.compareTo(o2);
 	}
 	
 	

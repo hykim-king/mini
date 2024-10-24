@@ -47,9 +47,9 @@ public interface WorkDiv<T> {
 
 	/**
 	 * 회원단건 조회
-	 * @param param
+	 * @param param 
 	 * @return MemberVO
 	 */
-	List<T> doRetrieve(DTO param);
+	List<T> doRetrieve(DTO param,int pageNum,int pageSize);
 
 }
